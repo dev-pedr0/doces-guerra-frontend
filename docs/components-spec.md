@@ -104,3 +104,62 @@ Componente de rodapé da aplicação, contendo links de navegação, redes socia
 *   **Ícones de Ação (Up Arrow e Carrinho):**
     *   **Up Arrow:** Tamanho `65px`.
     *   **Carrinho:** Tamanho `80px`. Fica posicionado fora do fluxo flex principal, respeitando o padding de 32px e 144px, alinhado na mesma linha horizontal da Up Arrow.
+
+## 3. Generic Button (Botão Genérico)
+
+**Local sugerido do arquivo:** `src/components/ui/GenericButton.tsx` (ou `src/components/ui/Button.tsx`)
+
+Componente de botão reutilizável por toda a aplicação para ações secundárias e cards.
+
+### 3.1 Props
+* `text` (string): Texto a ser exibido no botão.
+* `onClick` (opcional): Função executada ao clicar no botão.
+* `className` (opcional): Classes adicionais de estilização.
+
+### 3.2 Layout e Estilização
+* **Largura e Altura:** Variável (`w-fit h-fit` ou alinhado ao conteúdo).
+* **Alinhamento do Conteúdo:** Flexbox totalmente centralizado (`flex items-center justify-center text-center`).
+* **Fundo:** Cor correspondente ao token `text-link` (rosa/mauve `--pink-600` / `#A26888`).
+* **Cor do Texto:** Classe semântica `text-light`.
+
+### 3.3 Responsividade
+* **Mobile (< 1024px):**
+  * **Padding:** Eixo Y: `2px` (`py-[2px]`), Eixo X: `8px` (`px-[8px]`).
+  * **Tipografia:** Classe `body-small`.
+* **Desktop (>= 1024px):**
+  * **Padding:** Eixo Y: `4px` (`lg:py-[4px]`), Eixo X: `16px` (`lg:px-[16px]`).
+  * **Tipografia:** Classe `body-large` (`lg:body-large`).
+
+---
+
+## 4. Product Card (Card de Produto)
+
+**Local sugerido do arquivo:** `src/components/ui/ProductCard.tsx` (ou `src/components/cards/ProductCard.tsx`)
+
+Componente de card para exibição visual dos produtos em destaque ou listas do cardápio.
+
+### 4.1 Props
+* `title` (string): Nome do produto/item a ser exibido no card.
+* `imageUrl` (string): Caminho/URL da imagem de fundo do produto.
+* `onBuy` (opcional): Função/ação ao clicar no botão "Comprar".
+
+### 4.2 Estrutura e Estilização
+* **Background:** Imagem recebida via prop `imageUrl` (aplicada como background cover centralizado) com flexbox alinhando os elementos no final do card (`flex flex-col justify-end items-center`).
+* **Espaçamento entre Elementos:** `gap-[16px]` entre o nome do produto e o botão de compra.
+* **Efeito de Sombra (Drop Shadow):** Sombra externa de `X:0, Y:4px, Blur:4px` com 50% de opacidade preta (`drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]` ou `shadow-[0_4px_4px_rgba(0,0,0,0.5)]`).
+
+### 4.3 Elementos Internos
+1. **Nome do Item:**
+   * Recebido via prop `title`.
+   * **Tipografia e Cor:** Classes `heading-h2` e `text-title`.
+   * **Borda nas Letras:** Borda suave envolvendo cada letra do texto na cor da classe semântica `border-subtle` (utilizar `-webkit-text-stroke` / CSS text stroke com a cor `--pink-400`).
+2. **Botão de Compra:**
+   * Instância do componente **Generic Button** passando o texto `"Comprar"`.
+
+### 4.4 Responsividade
+* **Mobile (< 1024px):**
+  * **Dimensões:** Largura de `254px` (`w-[254px]`), Altura de `339px` (`h-[339px]`).
+  * **Padding:** Inferior (bottom): `36px` (`pb-[36px]`), Lateral (x): `0px` (`px-0`).
+* **Desktop (>= 1024px):**
+  * **Dimensões:** Largura de `502px` (`lg:w-[502px]`), Altura de `669px` (`lg:h-[669px]`).
+  * **Padding:** Inferior (bottom): `40px` (`lg:pb-[40px]`), Lateral (x): `0px` (`lg:px-0`).
