@@ -1,1 +1,210 @@
+@import "tailwindcss";
 
+/* 
+  Definição das Cores Primitivas 
+  Conforme instrução, estas atuam como base (variáveis) e não devem ser usadas diretamente nos elementos.
+*/
+:root {
+  /* Cream */
+  --cream-25: #FFFDF7;
+  --cream-50: #FFF9E6;
+  --cream-100: #FEEC94;
+  
+  /* Chocolate */
+  --chocolate-100: #F5EBE8;
+  --chocolate-500: #7D5A50;
+  --chocolate-800: #3D2620;
+  --chocolate-900: #251410;
+  
+  /* Pink */
+  --pink-100: #FFF0F3;
+  --pink-200: #FBD2DB;
+  --pink-400: #D1AEC0;
+  --pink-600: #A26888;
+  
+  /* Mint */
+  --mint-100: #D6F1EA;
+  --mint-200: #D5EDBF;
+  --mint-500: #4E9F72;
+  --mint-700: #285B3F;
+  
+  /* Red */
+  --red-100: #FDE8E8;
+  --red-500: #E53935;
+  --red-700: #9C1C1C;
+  
+  /* Amber */
+  --amber-100: #FEF3D6;
+  --amber-700: #B45309;
+  
+  /* Neutro */
+  --neutral-white: #FFFFFF;
+}
+
+/* 
+  Classes Semânticas e Tipografia 
+  Utilizando as variáveis primitivas e definições do Design System para o Tailwind CSS 4
+*/
+@layer components {
+  
+  /* -- CORES SEMÂNTICAS -- */
+  
+  /* Background */
+  .bg-page { background-color: var(--cream-25); }
+  .bg-surface { background-color: var(--cream-50); }
+  .bg-surface-light { background-color: var(--neutral-white); }
+  .bg-accent { background-color: var(--pink-200); }
+  .bg-hover { background-color: var(--cream-100); }
+
+  /* Text */
+  .text-title { color: var(--chocolate-900); }
+  .text-body { color: var(--chocolate-800); }
+  .text-muted { color: var(--chocolate-500); }
+  .text-light { color: var(--cream-25); }
+  .text-link { color: var(--pink-600); }
+
+  /* Border */
+  .border-default { border-color: var(--chocolate-100); }
+  .border-strong { border-color: var(--chocolate-800); }
+  .border-subtle { border-color: var(--pink-400); }
+  .border-focus { border-color: var(--pink-600); }
+
+  /* Button */
+  .button-primary { background-color: var(--pink-600); color: var(--neutral-white); }
+  .button-primary-hover:hover { background-color: var(--pink-400); }
+  .button-text { color: var(--neutral-white); }
+  .button-secondary { background-color: var(--pink-100); }
+  .button-secondary-hover:hover { background-color: var(--pink-200); }
+
+  /* Status */
+  .status-success { background-color: var(--mint-500); }
+  .status-success-soft { background-color: var(--mint-200); }
+  .status-success-text { color: var(--mint-700); }
+  .status-danger { background-color: var(--red-500); }
+  .status-danger-soft { background-color: var(--red-100); }
+  .status-danger-text { color: var(--red-700); }
+  .status-warning-soft { background-color: var(--amber-100); }
+  .status-warning-text { color: var(--amber-700); }
+  .status-info-soft { background-color: var(--mint-100); }
+  .status-info-text { color: var(--chocolate-800); }
+
+
+  /* -- TIPOGRAFIA -- */
+  
+  /* Global */
+  body {
+    font-family: 'Mulish', sans-serif;
+    background-color: var(--cream-25);
+    color: var(--chocolate-800);
+  }
+
+  /* Display Hero */
+  .display-hero {
+    font-family: 'Mulish', sans-serif;
+    font-size: 25px; /* Mobile */
+    font-weight: 700; /* Bold */
+    line-height: 1.1; /* 110% */
+  }
+  @media (min-width: 768px) { .display-hero { font-size: 39px; } }
+
+  /* Display Sub */
+  .display-sub {
+    font-family: 'Mulish', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  @media (min-width: 768px) { .display-sub { font-size: 35px; } }
+
+  /* Heading H1 */
+  .heading-h1 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) { .heading-h1 { font-size: 31px; } }
+
+  /* Heading H2 */
+  .heading-h2 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 28px;
+    font-weight: 600; /* Semibold */
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) { .heading-h2 { font-size: 25px; } }
+
+  /* Heading H3 */
+  .heading-h3 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  @media (min-width: 768px) { .heading-h3 { font-size: 20px; } }
+
+  /* Heading H4 */
+  .heading-h4 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  @media (min-width: 768px) { .heading-h4 { font-size: 18px; } }
+
+  /* Body Large */
+  .body-large {
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-weight: 400; /* Regular */
+    line-height: 1.6;
+  }
+
+  /* Body Medium */
+  .body-medium {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Body Small */
+  .body-small {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Body Caption */
+  .body-caption {
+    font-family: 'Mulish', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Label Large */
+  .label-large {
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* Label Medium */
+  .label-medium {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  /* Label Small */
+  .label-small {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+}

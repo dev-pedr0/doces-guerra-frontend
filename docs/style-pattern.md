@@ -34,7 +34,7 @@ Use EXCLUSIVAMENTE estas classes em seus componentes React.
 *   `text-link`: pink-600
 
 **Border:**
-*   `border-default`: chocolate-100 *(Nota: documento original dizia chocolate-10, assumido chocolate-100 pelo hex #F5EBE8)*
+*   `border-default`: chocolate-100
 *   `border-strong`: chocolate-800
 *   `border-subtle`: pink-400
 *   `border-focus`: pink-600
