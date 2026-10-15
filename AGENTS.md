@@ -1,9 +1,18 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Instruções para Agentes de IA
 
-# This is NOT the Next.js you know
+Este documento define o comportamento esperado de qualquer agente de IA (como Cline, Claude, Cursor, etc.) operando neste repositório.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## 1. Regra de Ouro
+**Nunca faça suposições que quebrem os padrões estabelecidos.** Se uma cor, fonte ou estrutura de pasta for necessária e não estiver mapeada nestes documentos, você deve avisar o usuário e solicitar autorização/informação adicional antes de prosseguir.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+## 2. Leitura Obrigatória
+Antes de gerar qualquer código, o agente DEVE ler e assimilar os seguintes arquivos:
+- `project-structure.md` (Para saber onde colocar o código).
+- `style-patterns.md` (Para saber como estilizar os componentes).
 
-<!-- END:nextjs-agent-rules -->
+## 3. Gestão de Arquivos e Permissões
+- **Mutações na Raiz:** Você **NÃO ESTÁ AUTORIZADO** a criar, renomear ou remover arquivos na raiz do projeto, nem alterar os diretórios principais dentro de `src/`, a menos que solicite permissão explícita ao usuário acompanhada de uma justificativa técnica clara.
+- **Mutações Internas:** A criação, renomeação e remoção de arquivos *dentro* das pastas pré-aprovadas em `src/` (ex: dentro de `src/components/ui/`) é livre e encorajada para manter o código modular.
+
+## 4. Controle de Versões
+Respeite estritamente as versões definidas no `README.md`. Não atualize pacotes como Next, React ou Tailwind sem solicitação explícita do usuário.
