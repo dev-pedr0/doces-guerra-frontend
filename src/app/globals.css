@@ -55,7 +55,6 @@
   .bg-surface-light { background-color: var(--neutral-white); }
   .bg-accent { background-color: var(--pink-200); }
   .bg-hover { background-color: var(--cream-100); }
-  .bg-link { background-color: var(--pink-600); }
 
   /* Text */
   .text-title { color: var(--chocolate-900); }
@@ -65,10 +64,25 @@
   .text-link { color: var(--pink-600); }
 
   /* Border */
-  .border-default { border-color: var(--chocolate-100); }
-  .border-strong { border-color: var(--chocolate-800); }
-  .border-subtle { border-color: var(--pink-400); }
-  .border-focus { border-color: var(--pink-600); }
+  .button-primary { 
+    background-color: var(--pink-600); 
+    color: var(--neutral-white); 
+    transition: background-color 0.2s ease-in-out; /* Transição suave */
+  }
+
+  /* Aplica o hover diretamente na classe principal */
+  .button-primary:hover { 
+    background-color: var(--pink-400); 
+  }
+
+  .button-secondary { 
+    background-color: var(--pink-100); 
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .button-secondary:hover { 
+    background-color: var(--pink-200); 
+  }
 
   /* Button */
   .button-primary { background-color: var(--pink-600); color: var(--neutral-white); }
