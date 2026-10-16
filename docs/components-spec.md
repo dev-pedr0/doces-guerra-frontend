@@ -163,3 +163,30 @@ Componente de card para exibição visual dos produtos em destaque ou listas do 
 * **Desktop (>= 1024px):**
   * **Dimensões:** Largura de `502px` (`lg:w-[502px]`), Altura de `669px` (`lg:h-[669px]`).
   * **Padding:** Inferior (bottom): `40px` (`lg:pb-[40px]`), Lateral (x): `0px` (`lg:px-0`).
+
+## 5. Generic Carousel (Carrossel Genérico)
+**Local sugerido do arquivo:** `src/components/ui/GenericCarousel.tsx` (ou `src/components/ui/GenericCarroussel.tsx`)
+
+Componente de carrossel genérico e reutilizável que aceita qualquer lista de dados e componente de renderização, exibindo 3 itens em destaque com navegação circular (loop infinito), suporte a clique e arrasto (drag/touch).
+
+### 5.1 Props
+* `items` (`T[]`): Array genérico de dados/itens a serem renderizados.
+* `renderItem` (`(item: T, index: number) => React.ReactNode`): Função callback para renderizar cada card/item individualmente.
+* `className` (opcional): Classes adicionais de estilização do container.
+
+### 5.2 Estilização e Layout
+* **Fundo:** Transparente (`bg-transparent`) ou de acordo com o container pai onde for utilizado.
+* **Padding:** Eixo Y: `0px` (`py-0`), Eixo X: `0px` (`px-0`).
+* **Disposição Interna:** Flexbox em linha totalmente centralizado (`flex flex-row justify-center items-center w-full overflow-hidden`).
+* **Visibilidade:** Janela de exibição focada em 3 elementos visíveis simultaneamente (Esquerda, Centro, Direita), permitindo que os demais ultrapassem os limites da tela suavemente.
+
+### 5.3 Responsividade
+* **Mobile (< 1024px):**
+  * **Espaçamento entre itens:** `gap-[40px]`.
+* **Desktop (>= 1024px):**
+  * **Espaçamento entre itens:** `lg:gap-[88px]`.
+
+### 5.4 Comportamento e Interatividade
+* **Navegação Circular (Loop Infinito):** O carrossel funciona em ciclo contínuo. O item anterior ao primeiro é o último elemento do array, e o item posterior ao último é o primeiro.
+* **Foco Centralizado por Clique:** Clicar em qualquer card visível posiciona o card clicado no **Centro**, reorganizando dinamicamente os vizinhos da esquerda e da direita.
+* **Gestos de Arrasto (Drag & Touch):** Suporte para clicar e arrastar com o mouse ou deslizar o dedo (touchscreen), girando os elementos do carrossel para ambos os lados de forma suave.

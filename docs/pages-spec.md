@@ -36,3 +36,42 @@ Primeira seção de destaque exibida no topo da página inicial do site.
     * Tamanho: `40px` (`w-[40px] h-[40px]`).
     * Cor: Alinhado à cor do texto claro (`text-light`).
     * Animação / Interatividade: Efeito de bounce contínuo no hover (`hover:animate-bounce cursor-pointer`).
+
+## 2. Product Section (Seção de Produtos / Home)
+
+**Local do arquivo:** `src/pages/home/ProductSection.tsx`
+
+Seção responsável por exibir o carrossel de produtos em destaque na página inicial, integrando o componente `Generic Carousel` e renderizando cards individuais através do `Product Card`.
+
+---
+
+### 2.1 Layout e Responsividade
+
+#### Mobile (< 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `48px` (`py-[48px]`), Eixo X: `16px` (`px-[16px]`).
+* **Fundo:** Classe semântica `bg-surface`.
+* **Disposição Interna:** Flex em coluna, totalmente centralizado (`flex flex-col items-center justify-center`), com `gap-[32px]`.
+
+#### Desktop (>= 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `64px` (`lg:py-[64px]`), Eixo X: `144px` (`lg:px-[144px]`).
+* **Fundo:** Classe semântica `bg-surface`.
+* **Disposição Interna:** Flex em coluna, totalmente centralizado (`flex flex-col items-center justify-center`), com `gap-[40px]`.
+
+---
+
+### 2.2 Elementos Internos
+
+1. **Título da Seção:**
+   * **Texto:** *"Confira qual vai ser a sua sobremesa de hoje"*
+   * **Estilo do Texto:** Classe de tipografia `heading-h1`.
+   * **Cor Responsiva:**
+     * Mobile (< 1024px): Classe semântica `text-body`.
+     * Desktop (>= 1024px): Classe semântica `text-title` (`lg:text-title`).
+   * **Alinhamento:** Centralizado (`text-center`).
+
+2. **Carrossel de Produtos:**
+   * Instância do componente **Generic Carousel** (`src/components/ui/GenericCarousel.tsx`).
+   * **Massa de Dados:** Deve ser alimentado por uma lista/array de dados contendo o título e a imagem de cada produto (ex: importada da pasta `src/data/`).
+   * **Renderização dos Itens:** Passa a prop de renderização montando cada item como um **Product Card** (`src/components/ui/ProductCard.tsx`), repassando o `title` e a `imageUrl`.
