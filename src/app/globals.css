@@ -54,6 +54,7 @@
   .bg-surface { background-color: var(--cream-50); }
   .bg-surface-light { background-color: var(--neutral-white); }
   .bg-accent { background-color: var(--pink-200); }
+  .bg-muted { background-color: var(--chocolate-500); }
   .bg-hover { background-color: var(--cream-100); }
 
   /* Text */
@@ -231,10 +232,21 @@
     font-weight: 400;
   }
 
+  .body-text-responsive {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
   @media (min-width: 1024px) {
     .button-text-responsive {
       font-size: 16px;
       line-height: 1.6;
     }
-  }
+
+    .body-text-responsive {
+      font-size: 14px;
+    }
+  }    
 }

@@ -75,3 +75,52 @@ Seção responsável por exibir o carrossel de produtos em destaque na página i
    * Instância do componente **Generic Carousel** (`src/components/ui/GenericCarousel.tsx`).
    * **Massa de Dados:** Deve ser alimentado por uma lista/array de dados contendo o título e a imagem de cada produto (ex: importada da pasta `src/data/`).
    * **Renderização dos Itens:** Passa a prop de renderização montando cada item como um **Product Card** (`src/components/ui/ProductCard.tsx`), repassando o `title` e a `imageUrl`.
+
+## 3. About Me Section (Seção Sobre Mim / Home)
+
+**Local do arquivo:** `src/pages/home/AboutMeSection.tsx`
+
+Seção responsável por apresentar a história da fundadora e do estabelecimento, composta por um texto institucional, um divisor gráfico em cruz e uma imagem ilustrativa retangular.
+
+---
+
+### 3.1 Fonte de Dados (Massa de Dados)
+* **Arquivo de Origem:** Os dados de texto (história/apresentação) e a URL/caminho da imagem devem ser importados do arquivo de dados **`src/data/about-me.ts`** (ou `data/about-me.ts`).
+
+---
+
+### 3.2 Layout e Responsividade
+
+#### Mobile (< 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `48px` (`py-[48px]`), Eixo X: `16px` (`px-[16px]`).
+* **Fundo:** Classe semântica `bg-page`.
+* **Disposição Interna:** Flex em coluna, centralizado ao topo (`flex flex-col items-center justify-start`), com `gap-[24px]`.
+
+#### Desktop (>= 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `64px` (`lg:py-[64px]`), Eixo X: `144px` (`lg:px-[144px]`).
+* **Fundo:** Classe semântica `bg-page`.
+* **Disposição Interna:** Flex em coluna, centralizado ao topo (`flex flex-col items-center justify-start`), com `gap-[24px]`.
+
+---
+
+### 3.3 Elementos Internos
+
+1. **Texto da Cliente (Apresentação):**
+   * **Origem dos Dados:** Importado da propriedade de texto do arquivo `src/data/about-me.ts`.
+   * **Cor do Texto:** Classe semântica `text-body`.
+   * **Alinhamento:** Justificado (`text-justify`).
+   * **Tipografia Responsiva:**
+     * Mobile (< 1024px): Classe `body-small`.
+     * Desktop (>= 1024px): Classe `body-medium` (`lg:body-medium`).
+
+2. **Divisor Decorativo (Linhas em Cruz):**
+   * **Estrutura:** Duas linhas perpendiculares com espessura de `2px` e cor da classe semântica `text-muted` (`--chocolate-500`):
+     * **Linha Horizontal:** Largura total da área de conteúdo (`w-full`), espessura `2px`.
+     * **Linha Vertical:** Altura de `59px` (`h-[59px]`), espessura `2px`, centralizada cortando a linha horizontal ao meio.
+
+3. **Imagem Retangular:**
+   * **Origem dos Dados:** Importada da propriedade de imagem/caminho do arquivo `src/data/about-me.ts`.
+   * **Descrição:** Imagem retangular do estabelecimento / fachada.
+   * **Estilo:** Largura total respeitando o container/paddings (`w-full`), mantendo as proporções de aspecto retangular.
