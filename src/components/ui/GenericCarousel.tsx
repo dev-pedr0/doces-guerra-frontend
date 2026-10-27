@@ -1,23 +1,46 @@
 'use client';
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
 
 interface GenericCarouselProps<T> {
   items: T[];
-  renderItem: (item: T, index: number) => React.ReactNode;
+  renderItem: (item: T, index: number, isCenter: boolean) => React.ReactNode;
   className?: string;
+  heightClass?: string; // Nova prop para controlar a altura
 }
 
 const GenericCarousel = <T extends { id?: string | number }>({
   items,
   renderItem,
   className,
+  heightClass, // Desestruturar a nova prop
 }: GenericCarouselProps<T>) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  const [itemWidth, setItemWidth] = useState(0);
+  const [gapSize, setGapSize] = useState(0);
+
+  useLayoutEffect(() => {
+    const calculateDimensions = () => {
+      if (window.innerWidth < 1024) { // Mobile
+        setItemWidth(254); // Largura do FeedbackCard em mobile
+        setGapSize(40);    // Gap entre itens em mobile
+      } else { // Desktop
+        setItemWidth(502); // Largura do FeedbackCard em desktop
+        setGapSize(88);    // Gap entre itens em desktop
+      }
+    };
+
+    calculateDimensions(); // Cálculo inicial
+    window.addEventListener('resize', calculateDimensions);
+    return () => window.removeEventListener('resize', calculateDimensions);
+  }, []);
+
+  const stepSize = itemWidth + gapSize; // Largura do item + espaçamento
 
   const handleGoTo = useCallback((index: number) => {
     setCurrentIndex(index);
@@ -75,19 +98,17 @@ const GenericCarousel = <T extends { id?: string | number }>({
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      <div className="relative flex justify-center items-center w-full min-h-[360px] lg:min-h-[700px]">
+      <div className={`relative flex justify-center items-center w-full ${heightClass || ''}`}>
         {items.map((item, index) => {
           let diff = index - currentIndex;
 
-          // Calcula a menor distância para manter o comportamento de loop infinito
           if (items.length > 2) {
             if (diff > items.length / 2) diff -= items.length;
             if (diff < -items.length / 2) diff += items.length;
           }
 
           const isCenter = diff === 0;
-          const isVisible = Math.abs(diff) <= 1; // Exibe o anterior, centro e próximo
-
+          const isVisible = Math.abs(diff) <= 1;
           const itemKey = item.id !== undefined ? item.id : `carousel-item-${index}`;
 
           return (
@@ -101,14 +122,17 @@ const GenericCarousel = <T extends { id?: string | number }>({
                   : 'scale-100 opacity-100 z-10'
               }`}
               style={{
-                // Desloca o item com base na posição relativa ao centro + arrasto atual
-                transform: `translateX(calc(${diff * 110}% + ${dragOffset}px))`,
+                transform: `translateX(calc(${diff * stepSize}px + ${dragOffset}px))`,
                 visibility: isVisible ? 'visible' : 'hidden',
                 pointerEvents: isVisible ? 'auto' : 'none',
               }}
-              onClick={() => !isCenter && handleGoTo(index)}
+              onClick={() => {
+                // Se NÃO estiver no centro, o clique apenas move o carrossel para a posição clicada
+                if (!isCenter) handleGoTo(index);
+              }}
             >
-              {renderItem(item, index)}
+              {/* Repassa isCenter para a função renderItem */}
+              {renderItem(item, index, isCenter)}
             </div>
           );
         })}

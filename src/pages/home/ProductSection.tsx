@@ -25,6 +25,7 @@ const ProductSection: React.FC = () => {
             onBuy={handleBuy}
           />
         )}
+        heightClass="min-h-[360px] lg:min-h-[700px]" // Adicionando a classe de altura
       />
     </section>
   );

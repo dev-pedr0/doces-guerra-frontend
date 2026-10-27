@@ -124,3 +124,41 @@ Seção responsável por apresentar a história da fundadora e do estabeleciment
    * **Origem dos Dados:** Importada da propriedade de imagem/caminho do arquivo `src/data/about-me.ts`.
    * **Descrição:** Imagem retangular do estabelecimento / fachada.
    * **Estilo:** Largura total respeitando o container/paddings (`w-full`), mantendo as proporções de aspecto retangular.
+
+---
+
+## 4. Feedback Section (Seção de Feedback / Home)
+
+**Local do arquivo:** `src/pages/home/FeedbackSection.tsx`
+
+Seção responsável por exibir depoimentos e avaliações de clientes através do carrossel interativo, integrando os componentes `Generic Carousel` e `Feedback Card`.
+
+---
+
+### 4.1 Layout e Responsividade
+
+#### Mobile (< 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `48px` (`py-[48px]`), Eixo X: `16px` (`px-[16px]`).
+* **Fundo:** Classe semântica `bg-surface`.
+* **Disposição Interna:** Flex em coluna, totalmente centralizado (`flex flex-col items-center justify-center`), com `gap-[32px]`.
+
+#### Desktop (>= 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `64px` (`lg:py-[64px]`), Eixo X: `144px` (`lg:px-[144px]`).
+* **Fundo:** Classe semântica `bg-surface`.
+* **Disposição Interna:** Flex em coluna, totalmente centralizado (`flex flex-col items-center justify-center`), com `gap-[40px]`.
+
+---
+
+### 4.2 Elementos Internos
+
+1. **Título da Seção:**
+   * **Texto:** *"Veja o que os nossos clientes têm a dizer sobre nós"*
+   * **Estilo do Texto:** Classe de tipografia `heading-h1` e classe semântica `text-title`.
+   * **Alinhamento:** Centralizado (`text-center`).
+
+2. **Carrossel de Feedbacks:**
+   * Instância do componente **Generic Carousel** (`src/components/ui/GenericCarousel.tsx`).
+   * **Massa de Dados:** Gerada dinamicamente a partir do arquivo de lista em **`src/data/feedbacks.ts`**.
+   * **Renderização dos Itens:** Passa a prop de renderização montando cada item como um **Feedback Card** (`src/components/ui/FeedbackCard.tsx`), repassando o objeto `feedback` correspondente.

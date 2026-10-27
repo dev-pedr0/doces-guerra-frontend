@@ -105,6 +105,8 @@ Componente de rodapé da aplicação, contendo links de navegação, redes socia
     *   **Up Arrow:** Tamanho `65px`.
     *   **Carrinho:** Tamanho `80px`. Fica posicionado fora do fluxo flex principal, respeitando o padding de 32px e 144px, alinhado na mesma linha horizontal da Up Arrow.
 
+---
+
 ## 3. Generic Button (Botão Genérico)
 
 **Local sugerido do arquivo:** `src/components/ui/GenericButton.tsx` (ou `src/components/ui/Button.tsx`)
@@ -164,6 +166,8 @@ Componente de card para exibição visual dos produtos em destaque ou listas do 
   * **Dimensões:** Largura de `502px` (`lg:w-[502px]`), Altura de `669px` (`lg:h-[669px]`).
   * **Padding:** Inferior (bottom): `40px` (`lg:pb-[40px]`), Lateral (x): `0px` (`lg:px-0`).
 
+---
+
 ## 5. Generic Carousel (Carrossel Genérico)
 **Local sugerido do arquivo:** `src/components/ui/GenericCarousel.tsx` (ou `src/components/ui/GenericCarroussel.tsx`)
 
@@ -190,3 +194,77 @@ Componente de carrossel genérico e reutilizável que aceita qualquer lista de d
 * **Navegação Circular (Loop Infinito):** O carrossel funciona em ciclo contínuo. O item anterior ao primeiro é o último elemento do array, e o item posterior ao último é o primeiro.
 * **Foco Centralizado por Clique:** Clicar em qualquer card visível posiciona o card clicado no **Centro**, reorganizando dinamicamente os vizinhos da esquerda e da direita.
 * **Gestos de Arrasto (Drag & Touch):** Suporte para clicar e arrastar com o mouse ou deslizar o dedo (touchscreen), girando os elementos do carrossel para ambos os lados de forma suave.
+
+---
+
+## 6. Generic Card (Card Genérico)
+
+**Local sugerido do arquivo:** `src/components/ui/GenericCard.tsx` (ou `src/components/cards/GenericCard.tsx`)
+
+Componente container genérico reutilizável para envelopar textos, blocos de conteúdo ou conjuntos de elementos visuais pela aplicação.
+
+### 6.1 Props
+* `children` (`React.ReactNode`): Conteúdo filho a ser renderizado dentro do container (pode ser texto ou conjunto de elementos).
+* `className` (opcional, string): Classes CSS adicionais para customização de layout/dimensionamento externo.
+
+### 6.2 Estrutura e Estilização
+* **Dimensões:** Largura e Altura variáveis conforme o conteúdo ou classes enviadas (`w-fit h-fit` ou responsivas a partir do container pai).
+* **Fundo:** Classe semântica `bg-surface-light`.
+* **Borda:** Borda de espessura `2px` (`border-2`), cor semântica `border-subtle` e arredondamento de `20px` (`rounded-[20px]`).
+* **Sombra (Box Shadow):** Sombra projetada externa com `X: 0, Y: 4px, Blur: 4px` e cor `#000000` com 25% de opacidade (`shadow-[0_4px_4px_rgba(0,0,0,0.25)]`).
+
+### 6.3 Responsividade
+* **Mobile (< 1024px):**
+  * **Padding:** Eixo Y: `16px` (`py-4`), Eixo X: `8px` (`px-2`).
+* **Desktop (>= 1024px):**
+  * **Padding:** Mantém os mesmos padrões do Mobile — Eixo Y: `16px` (`lg:py-4`), Eixo X: `8px` (`lg:px-2`).
+
+---
+
+## 7. Feedback Card (Card de Feedback)
+
+**Local sugerido do arquivo:** `src/components/ui/FeedbackCard.tsx` (ou `src/components/cards/FeedbackCard.tsx`)
+
+Componente para exibição de depoimentos e avaliações de clientes. Utiliza como base o **Generic Card** e suporta truncamento de texto com abertura de modal ao clicar.
+
+### 7.1 Fonte de Dados
+* **Arquivo Data Source:** `src/data/feedbacks.ts` (ou similar).
+* **Estrutura do Tipo (`Feedback`):**
+  * `id` (`string | number`)
+  * `authorName` (`string`): Nome do autor da avaliação.
+  * `comment` (`string`): Texto detalhado do feedback.
+  * `rating` (`number`): Quantidade de estrelas marcadas (de 1 a 5).
+
+### 7.2 Props do Componente
+* `feedback` (`Feedback`): Objeto contendo `authorName`, `comment` e `rating`.
+* `onClick` (opcional, function): Função callback disparada ao clicar no card para abrir o modal com o feedback completo.
+
+### 7.3 Estrutura e Elementos Internos
+O card utiliza o **Generic Card** como container base e organiza os elementos internos em um layout Flex em coluna (`flex flex-col`):
+
+1. **Nome do Autor:**
+   * Alinhado à esquerda (`text-left`).
+   * **Tipografia e Cor:** Classes `heading-h4` e `text-body`.
+2. **Texto do Feedback:**
+   * Alinhado à esquerda e texto justificado (`text-left text-justify`).
+   * **Limitação Visual (Truncamento):** Em modo card, o texto é limitado a **no máximo 2 linhas** (ex: `line-clamp-2 overflow-hidden text-ellipsis`).
+3. **Avaliação em Estrelas (5 Estrelas):**
+   * Ícones `<Star />` renderizados exclusivamente via `lucide-react`.
+   * Sempre renderiza um grupo fixo de 5 estrelas em linha (`flex flex-row`).
+   * **Estrela Marcada (até a quantidade de `rating`):** Preenchimento/cor com classe semântica `bg-hover` (ou `text-bg-hover` / `fill-bg-hover`).
+   * **Estrela Desmarcada (restantes):** Preenchimento/cor com classe semântica `text-muted` (ou `fill-text-muted`).
+
+### 7.4 Responsividade e Espaçamentos
+
+* **Mobile (< 1024px):**
+  * **Espaçamento Interno (Gap):** `gap-[8px]` entre os 3 elementos.
+  * **Texto do Feedback:** Classe `body-small` e `text-body`.
+  * **Tamanho dos Ícones de Estrela:** `24px` x `24px` (`w-6 h-6`).
+
+* **Desktop (>= 1024px):**
+  * **Espaçamento Interno (Gap):** `lg:gap-[16px]` entre os 3 elementos.
+  * **Texto do Feedback:** Classe `lg:body-large` e `text-body`.
+  * **Tamanho dos Ícones de Estrela:** `28px` x `28px` (`lg:w-[28px] lg:h-[28px]`).
+
+### 7.5 Interatividade e Modal
+* **Ação de Clique:** O card inteiro deve possuir indicador interativo (`cursor-pointer`). Ao ser clicado, deve disparar a exibição de um Modal contendo as informações completas do feedback (Nome, 5 Estrelas e o Texto do Feedback na íntegra sem truncamento).
