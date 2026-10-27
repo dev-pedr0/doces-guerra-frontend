@@ -12,7 +12,9 @@ export default function HeroSection() {
           Conheça nosso cardápio, ele foi desenvolvido pensando em você
         </h1>
         <p className="display-sub text-light">Conheça Mais</p>
-        <ChevronDown className="w-[60px] h-[60px] text-light hover:animate-bounce cursor-pointer" />
+        <a href="#produtos">
+          <ChevronDown className="w-[60px] h-[60px] text-light hover:animate-bounce cursor-pointer" />
+        </a>
       </div>
     </section>
   );
