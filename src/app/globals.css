@@ -87,6 +87,7 @@ html {
   .status-success-text { color: var(--mint-700); }
   .status-danger { background-color: var(--red-500); }
   .status-danger-soft { background-color: var(--red-100); }
+  .status-danger-accent { color: var(--red-500); }
   .status-danger-text { color: var(--red-700); }
   .status-warning-soft { background-color: var(--amber-100); }
   .status-warning-text { color: var(--amber-700); }

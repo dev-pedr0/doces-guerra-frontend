@@ -162,3 +162,48 @@ Seção responsável por exibir depoimentos e avaliações de clientes através 
    * Instância do componente **Generic Carousel** (`src/components/ui/GenericCarousel.tsx`).
    * **Massa de Dados:** Gerada dinamicamente a partir do arquivo de lista em **`src/data/feedbacks.ts`**.
    * **Renderização dos Itens:** Passa a prop de renderização montando cada item como um **Feedback Card** (`src/components/ui/FeedbackCard.tsx`), repassando o objeto `feedback` correspondente.
+
+---
+
+## 5. Alert Section (Seção de Alerta / Home)
+
+**Local do arquivo:** `src/pages/home/AlertSection.tsx`
+
+Seção de aviso informativo/alerta importante sobre alergênicos e restrições alimentares nos produtos.
+
+---
+
+### 5.1 Fonte de Dados (Massa de Dados)
+* **Arquivo de Origem:** Os textos (título e mensagem do alerta) devem vir obrigatoriamente do arquivo de dados **`src/data/alert.ts`** (ex: contendo as propriedades `title` e `message`).
+
+---
+
+### 5.2 Layout e Responsividade
+
+#### Mobile (< 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `48px` (`py-[48px]`), Eixo X: `16px` (`px-[16px]`).
+* **Fundo:** Classe semântica `bg-page`.
+* **Disposição Interna:** Flex em coluna, totalmente centralizado (`flex flex-col items-center justify-center text-center`), com `gap-[32px]`.
+
+#### Desktop (>= 1024px)
+* **Dimensões:** Largura total (`w-full`), Altura variável (`h-auto`).
+* **Espaçamento (Padding):** Eixo Y: `64px` (`lg:py-[64px]`), Eixo X: `144px` (`lg:px-[144px]`).
+* **Fundo:** Classe semântica `bg-page`.
+* **Disposição Interna:** Flex em coluna, totalmente centralizado (`flex flex-col items-center justify-center text-center`), com `gap-[40px]`.
+
+---
+
+### 5.3 Elementos Internos
+
+1. **Título de Alerta:**
+   * **Origem dos Dados:** Importado da propriedade de título de `src/data/alert.ts` (ex: *"Atenção!!"*).
+   * **Tipografia:** Classe `heading-h1` (ou `h1`).
+   * **Cor semântica:** Classe de cor de status/perigo `text-status-danger` (ou `text-danger`).
+   * **Alinhamento:** Centralizado (`text-center`).
+
+2. **Texto do Alerta:**
+   * **Origem dos Dados:** Importado da propriedade de mensagem de `src/data/alert.ts` (ex: *"Os produtos Doces Guerra pode conter alergênicos como leite, amendoim, glúten entre outros. Por gentileza informe se possui alguma restrição alimentar na observação dos pedidos."*).
+   * **Tipografia:** Classe de texto responsivo `body-text-responsive` (ou `body-small lg:body-large`).
+   * **Cor semântica:** Classe de cor de status/perigo `text-status-danger` (ou `text-danger`).
+   * **Alinhamento:** Centralizado (`text-center`).
