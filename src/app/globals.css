@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
 /* 
   Definição das Cores Primitivas 
   Conforme instrução, estas atuam como base (variáveis) e não devem ser usadas diretamente nos elementos.
