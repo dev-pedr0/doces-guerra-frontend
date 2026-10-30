@@ -59,6 +59,9 @@ html {
   .bg-accent { background-color: var(--pink-200); }
   .bg-muted { background-color: var(--chocolate-500); }
   .bg-hover { background-color: var(--cream-100); }
+  .bg-drawer-gradient {
+    background: linear-gradient(to top, var(--cream-25), var(--pink-200));
+  }
 
   /* Text */
   .text-title { color: var(--chocolate-900); }
@@ -99,14 +102,13 @@ html {
   
   /* Global */
   body {
-    font-family: 'Mulish', sans-serif;
+    font-family: var(--font-quicksand), sans-serif;
     background-color: var(--cream-25);
     color: var(--chocolate-800);
   }
 
   /* Display Hero */
   .display-hero {
-    font-family: 'Mulish', sans-serif;
     font-size: 25px; /* Mobile */
     font-weight: 700; /* Bold */
     line-height: 1.1; /* 110% */
@@ -115,7 +117,6 @@ html {
 
   /* Display Sub */
   .display-sub {
-    font-family: 'Mulish', sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.15;
@@ -124,7 +125,6 @@ html {
 
   /* Heading H1 */
   .heading-h1 {
-    font-family: 'Mulish', sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.2;
@@ -133,7 +133,6 @@ html {
 
   /* Heading H2 */
   .heading-h2 {
-    font-family: 'Mulish', sans-serif;
     font-size: 28px;
     font-weight: 600; /* Semibold */
     line-height: 1.2;
@@ -142,7 +141,6 @@ html {
 
   /* Heading H3 */
   .heading-h3 {
-    font-family: 'Mulish', sans-serif;
     font-size: 26px;
     font-weight: 600;
     line-height: 1.25;
@@ -151,7 +149,6 @@ html {
 
   /* Heading H4 */
   .heading-h4 {
-    font-family: 'Mulish', sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.3;
@@ -160,7 +157,6 @@ html {
 
   /* Body Large */
   .body-large {
-    font-family: 'Mulish', sans-serif;
     font-size: 16px;
     font-weight: 400; /* Regular */
     line-height: 1.6;
@@ -168,7 +164,6 @@ html {
 
   /* Body Medium */
   .body-medium {
-    font-family: 'Mulish', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
@@ -176,7 +171,6 @@ html {
 
   /* Body Small */
   .body-small {
-    font-family: 'Mulish', sans-serif;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -184,7 +178,6 @@ html {
 
   /* Body Caption */
   .body-caption {
-    font-family: 'Mulish', sans-serif;
     font-size: 10px;
     font-weight: 400;
     line-height: 1.6;
@@ -192,7 +185,6 @@ html {
 
   /* Label Large */
   .label-large {
-    font-family: 'Mulish', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 1.2;
@@ -200,7 +192,6 @@ html {
 
   /* Label Medium */
   .label-medium {
-    font-family: 'Mulish', sans-serif;
     font-size: 14px;
     font-weight: 700;
     line-height: 1.25;
@@ -208,22 +199,25 @@ html {
 
   /* Label Small */
   .label-small {
-    font-family: 'Mulish', sans-serif;
     font-size: 12px;
     font-weight: 700;
     line-height: 1.3;
   }
 
   /* Personalized */
-  .button-text-responsive {
-    font-family: 'Mulish', sans-serif;
+  .button-text-responsive {  
     font-size: 12px;
     line-height: 1.5;
     font-weight: 400;
   }
 
-  .body-text-responsive {
-    font-family: 'Mulish', sans-serif;
+  .body-text-responsive {    
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .about-me-text-responsive {
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -238,5 +232,10 @@ html {
     .body-text-responsive {
       font-size: 14px;
     }
-  }    
+
+    .about-me-text-responsive {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  }  
 }

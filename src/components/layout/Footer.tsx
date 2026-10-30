@@ -126,17 +126,20 @@ const Footer = () => {
       <div className="flex justify-center items-center">
         <button
           onClick={scrollToTop}
-          className="cursor-pointer hover:animate-bounce"
+          className="cursor-pointer hover:animate-bounce 
+            lg:hover:animate-none lg:flex lg:items-center lg:gap-2 lg:px-4 lg:py-2.5 lg:rounded-full lg:shadow-md lg:transition-all lg:bg-[var(--pink-600)] lg:text-[var(--neutral-white)] lg:hover:bg-[var(--pink-400)]"
           aria-label="Voltar ao topo"
         >
-          <ArrowBigUpDash className="w-[32px] h-[32px] lg:w-[60px] lg:h-[60px]" />
+          <ArrowBigUpDash className="w-[32px] h-[32px] lg:w-5 lg:h-5" />
+          <span className="hidden lg:inline body-large">Voltar ao topo</span>
         </button>
       </div>
 
       <div className="absolute bottom-4 right-4 lg:bottom-8 lg:right-36 flex flex-row items-end gap-[16px]">
-        <Link href="/carrinho" className="cursor-pointer hover:opacity-75" aria-label="Ir para o carrinho">
+        {/* Carrinho de compra, ainda não funcional */}
+        {/* <Link href="/carrinho" className="cursor-pointer hover:opacity-75" aria-label="Ir para o carrinho">
           <ShoppingCart className="w-[33px] h-[33px] lg:w-[60px] lg:h-[60px]" />
-        </Link>
+        </Link> */}
       </div>
     </footer>
   );

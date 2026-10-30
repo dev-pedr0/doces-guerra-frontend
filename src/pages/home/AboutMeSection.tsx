@@ -12,7 +12,7 @@ export const AboutMeSection = () => {
         className="flex flex-col items-center justify-start gap-[24px]"
       >
         <p
-          className="text-justify text-body body-text-responsive"
+          className="text-justify text-body about-me-text-responsive"
         >
           {aboutData.text}
         </p>
@@ -22,7 +22,7 @@ export const AboutMeSection = () => {
           <div className="absolute w-[2px] h-[59px] bg-muted left-1/2 -translate-x-1/2" />
         </div>
 
-        <div className="w-full">
+        <div className="w-full md:w-[70%]">
           <Image
             src={aboutData.imageUrl}
             alt="Imagem do estabelecimento"

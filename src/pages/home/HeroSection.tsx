@@ -11,7 +11,7 @@ export default function HeroSection() {
         <h1 className="display-hero text-light">
           Conheça nosso cardápio, ele foi desenvolvido pensando em você
         </h1>
-        <p className="display-sub text-light">Conheça Mais</p>
+        <p className="display-sub text-light">Explore Nossas Delícias</p>
         <a href="#produtos">
           <ChevronDown className="w-[60px] h-[60px] text-light hover:animate-bounce cursor-pointer" />
         </a>

@@ -72,27 +72,32 @@ const Header = () => {
       )}
 
       <div
-        className={`fixed top-0 right-0 h-screen w-1/2 max-w-[196px] bg-surface z-50 transition-transform transform ${
+        className={`fixed top-0 right-0 h-screen w-1/2 max-w-[196px] bg-drawer-gradient z-50 transition-transform transform ${
           isDrawerOpen ? "translate-x-0" : "translate-x-full"
-        } flex flex-col items-end py-2 px-2`}
+        } flex flex-col items-end py-2 pl-2 pr-8`}
       >
         <button
           onClick={toggleDrawer}
-          className="p-[10px] rounded-[10px] border border-strong button-primary cursor-pointer mb-[40px]"
+          className="py-[10px] px-[15px] rounded-[10px] border border-strong button-primary cursor-pointer mb-[40px]"
           aria-label="Fechar Menu"
         >
           <X className="button-text" size={24} />
         </button>
-        <nav className="flex flex-col items-end gap-[40px]">
-          {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} passHref>
-              <span
-                onClick={toggleDrawer}
-                className="text-body heading-h1 cursor-pointer hover:opacity-75 transition-opacity"
-              >
-                {link.name}
-              </span>
-            </Link>
+        <nav className="flex flex-col items-end gap-4 w-full">
+          {navLinks.map((link, index) => (
+            <React.Fragment key={link.name}>
+              <Link href={link.href} passHref>
+                <span
+                  onClick={toggleDrawer}
+                  className="text-body heading-h1 cursor-pointer hover:opacity-75 transition-opacity w-full text-right"
+                >
+                  {link.name}
+                </span>
+              </Link>
+              {index < navLinks.length - 1 && (
+                <div className="border-b-3 border-strong w-full my-2"></div>
+              )}
+            </React.Fragment>
           ))}
         </nav>
       </div>

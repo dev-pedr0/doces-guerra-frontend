@@ -3,15 +3,15 @@ import { alertData } from '../../data/alert';
 
 const AlertSection: React.FC = () => {
   return (
-    <section className="w-full h-auto py-[48px] px-[16px] lg:py-[64px] lg:px-[144px] bg-page
-                        flex flex-col items-center justify-center text-center
-                        gap-[32px] lg:gap-[40px]">
-      <h1 className="heading-h1 status-danger-accent text-center">
-        {alertData.title}
-      </h1>
-      <p className="body-text-responsive status-danger-text text-justify">
-        {alertData.message}
-      </p>
+    <section className="w-full py-12 px-4 lg:py-16 lg:px-24 bg-page flex justify-center">
+      <div className="w-full max-w-4xl bg-surface-light border border-default rounded-2xl p-6 lg:p-10 shadow-sm flex flex-col gap-4 border-l-8 border-l-amber-700">
+        <h2 className="heading-h2 text-title">
+          {alertData.title}
+        </h2>
+        <p className="body-large text-body text-left">
+          {alertData.message}
+        </p>
+      </div>
     </section>
   );
 };
