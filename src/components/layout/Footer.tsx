@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from "next/image";
 import { ArrowBigUpDash, ShoppingCart } from 'lucide-react';
+import { navLinks } from "@/data/navLinks";
 import { useState, useEffect } from 'react';
 
 const Footer = () => {
@@ -40,15 +41,13 @@ const Footer = () => {
       <div className="flex flex-col gap-[32px] lg:hidden">
         {/* Menu de Navegação (Mobile) */}
         <nav className="flex flex-col gap-[16px] items-center text-center">
-          <Link href="/produtos" className="text-body label-large cursor-pointer hover:opacity-75">
-            Produtos
-          </Link>
-          <Link href="/sobre-mim" className="text-body label-large cursor-pointer hover:opacity-75">
-            Sobre Mim
-          </Link>
-          <Link href="/feedback" className="text-body label-large cursor-pointer hover:opacity-75">
-            Feedback
-          </Link>
+          {navLinks.map((link) => (
+            <Link key={link.name} href={link.href} passHref>
+              <span className="text-body label-large cursor-pointer hover:opacity-75 transition-opacity">
+                {link.name}
+              </span>
+            </Link>
+          ))}
         </nav>
 
         {/* Redes Sociais (Mobile) */}
@@ -83,15 +82,13 @@ const Footer = () => {
       <div className="hidden lg:flex lg:flex-row lg:justify-center lg:gap-[80px] lg:py-[32px] w-full">
         {/* Menu de Navegação (Desktop) */}
         <nav className="flex flex-col gap-[16px] items-center text-center">
-          <Link href="/produtos" className="text-body label-large cursor-pointer hover:opacity-75">
-            Produtos
-          </Link>
-          <Link href="/sobre-mim" className="text-body label-large cursor-pointer hover:opacity-75">
-            Sobre Mim
-          </Link>
-          <Link href="/feedback" className="text-body label-large cursor-pointer hover:opacity-75">
-            Feedback
-          </Link>
+          {navLinks.map((link) => (
+            <Link key={link.name} href={link.href} passHref>
+              <span className="text-body label-large cursor-pointer hover:opacity-75 transition-opacity">
+                {link.name}
+              </span>
+            </Link>
+          ))}
         </nav>
 
         {/* Redes Sociais (Desktop) */}

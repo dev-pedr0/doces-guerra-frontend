@@ -8,32 +8,26 @@ export interface Feedback {
 export const feedbacks: Feedback[] = [
   {
     id: '1',
-    authorName: 'Ana Silva',
-    comment: 'Os doces são simplesmente maravilhosos! O bolo de cenoura com brigadeiro é o meu favorito. Atendimento excelente e entrega super rápida. Recomendo muito!',
+    authorName: 'Raiana',
+    comment: 'Me lembro do ovo de colher que foi uma das sete maravilhas do mundo. Doce na medida certa, bem recheado e a embalagem de muito bom gosto, chega dava pena de comer. Comi por 3 dias com pena de terminar mas também pq veio em quantidade generosa, difícil não viciar... Tenho lembrança do cheiro de chocolate suave e me lembro que fiquei de mandar uma foto pra você mas comi uma parte antes de lembrar 🤭 a foto foi com um pedaço já no meu estômago e me lembro de estar muito feliz 💛',
     rating: 5,
   },
   {
     id: '2',
-    authorName: 'João Oliveira',
-    comment: 'Pedi alguns brigadeiros para uma festa e todos adoraram. São frescos, saborosos e a apresentação é impecável. Com certeza pedirei novamente.',
-    rating: 4,
+    authorName: 'Brenda',
+    comment: 'Os doces são impecáveis, e os ingredientes de altíssima qualidade. O atendimento também foi super atencioso. Virei cliente fiel !',
+    rating: 5,
   },
   {
     id: '3',
-    authorName: 'Mariana Costa',
-    comment: 'Recebi um bolo de presente e fiquei impressionada com a qualidade. O sabor é caseiro e a massa super macia. Nota 10!',
+    authorName: 'Grazielle',
+    comment: 'Tudo delicioso, não tem como escolher só um, mas em especial os doces zero lactose',
     rating: 5,
   },
   {
     id: '4',
-    authorName: 'Pedro Almeida',
-    comment: 'Experimentei os cookies e gostei bastante. São crocantes por fora e macios por dentro. A entrega foi um pouco demorada, mas valeu a pena pela qualidade.',
-    rating: 3,
-  },
-  {
-    id: '5',
-    authorName: 'Sofia Pereira',
-    comment: 'Os doces finos são uma obra de arte! Perfeitos para eventos especiais. Recomendo o camafeu de nozes.',
+    authorName: 'Ester',
+    comment: 'Amei todos os docinhos de copo zero lactose, nem imaginei q iria ficar perfeito assim',
     rating: 5,
   },
 ];

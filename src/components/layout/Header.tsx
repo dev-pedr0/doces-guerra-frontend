@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { navLinks } from "@/data/navLinks";
 
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -11,12 +12,6 @@ const Header = () => {
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-
-  const navLinks = [
-    { name: "Produtos", href: "#produtos" },
-    { name: "Sobre Mim", href: "#sobre-nos" },
-    { name: "Feedback", href: "#feedback" },
-  ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-accent">

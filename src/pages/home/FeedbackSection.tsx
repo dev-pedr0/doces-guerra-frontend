@@ -20,7 +20,7 @@ const FeedbackSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full h-auto py-[48px] px-[16px] bg-surface flex flex-col items-center justify-center gap-[32px]
+    <section id="feedback" className="w-full h-auto py-[48px] px-[16px] bg-surface flex flex-col items-center justify-center gap-[32px]
                         lg:py-[64px] lg:px-[144px] lg:gap-[40px]">
       <h1 className="heading-h1 text-title text-center">
         Veja o que os nossos clientes têm a dizer sobre nós
